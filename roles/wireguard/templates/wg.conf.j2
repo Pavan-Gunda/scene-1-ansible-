@@ -1,6 +1,8 @@
 [Interface]
 Address = {{ private_ip }}
 PrivateKey = {{ private_key }}
+PostUp = iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE; ip6tables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+PostDown = iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; ip6tables -t nat -D POSTROUTING -o ens3 -j MASQUERADE
 ListenPort = 51820
 
 {% for item in groups['wireguard'] %}

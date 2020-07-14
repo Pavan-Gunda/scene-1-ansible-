@@ -1,9 +1,16 @@
+- name: Allow SSH in UFW
+  ufw: rule=allow port=22 proto=tcp
+
+- name: Allow SSH in UFW
+  ufw: rule=allow port=51820 proto=udp  
+ 
+- name: Set firewall default policy
+  ufw: state=enabled policy=reject
+  sudo: true
 
 - name: Enable net.ipv4.ip_forward
   sysctl:
     name: net.ipv4.ip_forward
     value: 1
     reload: yes
-    state: present
-
-
+    state: present  
