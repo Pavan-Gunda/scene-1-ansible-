@@ -24,14 +24,14 @@
    - name: mv rke 
      shell: chmod +x ./kubectl
  
-   - name: mv rke 
+   - name: install kubectl
      shell: sudo mv ./kubectl /usr/local/bin/kubectl
 
-   - name: mv rke 
+   - name: rke up 
      shell: rke up --config=".\cluster.yml"
 
-  - name: mv rke 
+   - name: mv config
      shell: mv kube_config_cluster.yml config
 
-  - name: mv rke 
+   - name: mv config file 
      shell: mv config ~/.kube   
