@@ -51,6 +51,7 @@
 
 
 ---
+  
 - hosts: node-1
   become: yes
   tasks:
