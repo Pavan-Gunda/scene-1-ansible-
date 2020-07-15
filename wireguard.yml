@@ -10,18 +10,18 @@
   become: yes
   tasks:
    - name: rke install
-     shell: curl -s https://api.github.com/repos/rancher/rke/releases/latest | grep download_url | grep amd64 | cut -d '"' -f 4 | wget -qi -
+     shell: wget https://github.com/rancher/rke/releases/download/v1.0.10/rke_linux-amd64
 
    - name: changing permission
      shell: chmod +x rke_linux-amd64
-
+     
    - name: mv rke 
      shell: sudo mv rke_linux-amd64 /usr/local/bin/rke
 
-   - name: mv rke 
+   - name: install kubectl
      shell: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
-   - name: mv rke 
+   - name: mv kubectl 
      shell: chmod +x ./kubectl
  
    - name: install kubectl
@@ -34,4 +34,4 @@
      shell: mv kube_config_cluster.yml config
 
    - name: mv config file 
-     shell: mv config ~/.kube   
+     shell: mv config ~/.kube/config
