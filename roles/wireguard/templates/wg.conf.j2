@@ -10,7 +10,7 @@ ListenPort = 51820
 [Peer]
 PublicKey = {{ hostvars[item]['public_key'] }}
 AllowedIps = {{ hostvars[item]['private_ip'] }}/24
-Endpoint = {{ ansible_eth0.ipv4.address }}:51820
+Endpoint = {{ hostvars[item]['public_ip'] }}:51820
 
 {% endif %}
 {% endfor %}
