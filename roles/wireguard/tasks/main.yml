@@ -35,6 +35,14 @@
     group: root
     mode: 600
 
+- name: rke cluster yaml
+  template:
+    src: cluster.yml
+    dest: /root/cluster.yml
+    owner: root
+    group: root
+    mode: 600
+
 - name: Starting wireguard
   systemd:
     name: "wg-quick@wg0"
