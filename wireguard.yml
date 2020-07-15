@@ -14,7 +14,7 @@
 
    - name: changing permission
      shell: chmod +x rke_linux-amd64
-     
+
    - name: mv rke 
      shell: sudo mv rke_linux-amd64 /usr/local/bin/rke
 
@@ -30,8 +30,11 @@
    - name: rke up 
      shell: rke up --config="cluster.yml"
 
+   - name: rke up 
+     shell: mkdir ~/.kube
+
    - name: mv config
      shell: mv kube_config_cluster.yml config
 
    - name: mv config file 
-     shell: mv config ~/.kube/config
+     shell: mv config ~/.kube
