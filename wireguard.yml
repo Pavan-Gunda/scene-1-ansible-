@@ -28,7 +28,7 @@
      shell: sudo mv ./kubectl /usr/local/bin/kubectl
 
    - name: rke up 
-     shell: rke up --config=".\cluster.yml"
+     shell: rke up --config="cluster.yml"
 
    - name: mv config
      shell: mv kube_config_cluster.yml config
