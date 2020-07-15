@@ -49,8 +49,6 @@
     enabled: yes
     state: started
 
-
----
   
 - hosts: node-1
   become: yes
