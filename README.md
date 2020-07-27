@@ -28,5 +28,4 @@ You can get the status of Wireguard by running the following command on every ho
 
     ansible -i inventory/hosts.ini -a "wg show" wireguard
 
-## Resources
-For more information go to [Wireguard documentation](https://www.wireguard.com/quickstart/).
+
