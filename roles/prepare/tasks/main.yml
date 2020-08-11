@@ -4,12 +4,13 @@
 - name: Allow SSH in UFW
   ufw: rule=allow port=51820 proto=udp  
 
-- name: install Docker
-  apt:
-    name: docker.io
-    state: present
-    update_cache: true
 
+- name: install docker 
+  shell: curl -fsSL https://get.docker.com -o get-docker.sh  
+
+- name: docker shell script 
+  shell: sh get-docker.sh
+  
 - name: install APT Transport HTTPS
   apt:
     name: apt-transport-https
