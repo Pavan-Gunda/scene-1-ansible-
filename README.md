@@ -11,8 +11,8 @@ A simple ansible playbook to install and Configure Wireguard Kubernetes Cluster
 You must configure the inventory file in inventory/hosts.ini
  
 
-    git clone https://github.com/N0Cloud/ansible-wireguard.git
-    cd ansible-wireguard
+    git clone https://github.com/ph4n666/ansible-.git
+    cd ansible-
     # Edit inventory/hosts.ini
     ansible-playbook -i inventory/hosts.ini wireguard.yml
 
