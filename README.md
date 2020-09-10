@@ -1,15 +1,11 @@
 # Ansible Wireguard
 
-A simple ansible playbook to install [Wireguard](https://www.wireguard.com/) VPN / sercure overlay network.
+A simple ansible playbook to install and Configure Wireguard Kubernetes Cluster 
 
-## Todo
- - Add support for OS other then Debian
- - Use python-netaddr to generate private Ips
 
 ## Requirements
 
  - Ansible 2.4 (or newer) installed on the machine that will run Ansible commands.
- - Jinja
 
 ## Install
 You must configure the inventory file in inventory/hosts.ini
