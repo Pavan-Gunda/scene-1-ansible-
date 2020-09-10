@@ -20,9 +20,6 @@ You must configure the inventory file in inventory/hosts.ini
 You can get the status of Wireguard by running the following command on every hosts
 
     wg show
- or with ansible
-
-    ansible -i inventory/hosts.ini -a "wg show" wireguard
 
 verify the Cluster state using 
 ```bash
