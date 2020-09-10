@@ -24,4 +24,7 @@ You can get the status of Wireguard by running the following command on every ho
 
     ansible -i inventory/hosts.ini -a "wg show" wireguard
 
-
+verify the Cluster state using 
+```bash
+Kubectl get pods
+```
