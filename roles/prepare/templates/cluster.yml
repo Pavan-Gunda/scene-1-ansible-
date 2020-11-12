@@ -1,22 +1,25 @@
 cluster_name: rancher
 
 nodes:
-  - address: hostvars[inventory_hostname]['ansible_default_ipv4']['master']
-    user: root                       # username. you must have ssh access to the Server
+  - address: 89.42.141.31
+    user: root   
+                    # username. you must have ssh access to the Server
     role: [controlplane,worker,etcd]
 
-  - address: hostvars[inventory_hostname]['ansible_default_ipv4']['node-1']
-    user: root                       # username. you must have ssh access to the Server
-    role: [worker]
+  - address: 89.42.141.254
+    user: root    
+                   # username. you must have ssh access to the Server
+    role: [controlplane,worker,etcd]
 
-  - address: hostvars[inventory_hostname]['ansible_default_ipv4']['node-2']
-    user: root                       # username. you must have ssh access to the Server
-    role: [worker]
+  - address: 89.42.141.41
+    user: root     
+                  # username. you must have ssh access to the Server
+    role: [controlplane,worker,etcd]
 
-  - address: hostvars[inventory_hostname]['ansible_default_ipv4']['node-3']
-    user: root                       # username. you must have ssh access to the Server
-    role: [worker]
-
+  - address: 89.42.141.166
+    user: root             
+          # username. you must have ssh access to the Server
+    role: [controlplane,worker,etcd]
 services:
   etcd:
     snapshot: true
@@ -29,5 +32,5 @@ network:
 ingress:
   provider: nginx
 
-
+# hostvars[inventory_hostname]['ansible_default_ipv4']['address']
 #{{ hostvars.{{ inventory_hostname }}.ansible_ssh_host }}"
