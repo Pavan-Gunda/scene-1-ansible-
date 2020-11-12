@@ -1,11 +1,9 @@
 ---
-- hosts: wireguard
+- hosts: Scene-1
   any_errors_fatal: true
   roles: 
     - { role: prepare }
-    - { role: wireguard }
-
-    
+  
 - hosts: node-1
   become: yes
   tasks:
@@ -16,7 +14,7 @@
      shell: chmod +x rke_linux-amd64
 
    - name: mv rke 
-     shell: sudo mv rke_linux-amd64 /usr/local/bin/rke
+     shell: mv rke_linux-amd64 /usr/local/bin/rke
 
    - name: install kubectl
      shell: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
@@ -25,7 +23,8 @@
      shell: chmod +x ./kubectl
  
    - name: install kubectl
-     shell: sudo mv ./kubectl /usr/local/bin/kubectl
+     shell: mv ./kubectl /usr/local/bin/kubectl
+
 
    - name: rke up 
      shell: rke up --config="cluster.yml"
