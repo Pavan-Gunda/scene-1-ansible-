@@ -1,0 +1,24 @@
+---
+
+cluster_name: rancher
+
+nodes:
+{% for host in ansible_play_hosts %}
+  - hostname_override: "{{ hostvars[host].ansible_hostname }}"
+    address: "{{ hostvars[host]['ansible_' + cluster_interface].ipv4.address }}"
+    user: {{ rke_ssh_user }}
+    role:
+      {{ hostvars[host].rke_node_roles | to_nice_yaml(indent=2) | indent(width=6) }}
+{% endfor %}
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+network:
+  plugin: flannel
+
+ingress:
+  provider: nginx

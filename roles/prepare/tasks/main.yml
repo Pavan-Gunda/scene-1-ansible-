@@ -1,14 +1,5 @@
-- name: install docker 
-  shell: curl -fsSL https://get.docker.com -o get-docker.sh  
+- name: install docker
+  shell: curl -fsSL https://get.docker.com -o get-docker.sh
 
-- name: docker shell script 
+- name: docker shell script
   shell: sh get-docker.sh
-
-
-- name: rke cluster yaml
-  template:
-    src: cluster.yml
-    dest: /root/cluster.yml
-    owner: root
-    group: root
-    mode: 600

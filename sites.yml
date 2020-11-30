@@ -1,10 +1,11 @@
 ---
-- hosts: Scene-1
+- hosts: scene-1
   any_errors_fatal: true
-  roles: 
+  roles:
     - { role: prepare }
-  
-- hosts: node-1
+    - { role: sites }
+
+- hosts: master
   become: yes
   tasks:
    - name: rke install
@@ -13,27 +14,27 @@
    - name: changing permission
      shell: chmod +x rke_linux-amd64
 
-   - name: mv rke 
+   - name: mv rke
      shell: mv rke_linux-amd64 /usr/local/bin/rke
 
    - name: install kubectl
      shell: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 
-   - name: mv kubectl 
+   - name: mv kubectl
      shell: chmod +x ./kubectl
- 
+
    - name: install kubectl
      shell: mv ./kubectl /usr/local/bin/kubectl
 
 
-   - name: rke up 
+   - name: rke up
      shell: rke up --config="cluster.yml"
 
-   - name: rke up 
+   - name: rke up
      shell: mkdir ~/.kube
 
    - name: mv config
      shell: mv kube_config_cluster.yml config
 
-   - name: mv config file 
+   - name: mv config file
      shell: mv config ~/.kube

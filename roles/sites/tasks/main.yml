@@ -1,0 +1,7 @@
+- name: rke cluster yaml
+  template:
+    src: cluster.yml
+    dest: /root/cluster.yml
+    owner: root
+    group: root
+    mode: 600
